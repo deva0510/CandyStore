@@ -10,7 +10,7 @@ pipeline {
         stage('docker') {
             steps {
                 script {
-                     withDockerRegistry(credentialsId: 'cfcf8e7c-18a2-482a-9b04-c1fece4b6d93') {
+                    withDockerRegistry(credentialsId: 'docker-cred') {
                          sh 'docker build -t sree/candystore .'
                          sh 'docker push sree/candystore:latest'
                    }
