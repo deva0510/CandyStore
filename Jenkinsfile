@@ -10,7 +10,7 @@ pipeline {
         stage('docker') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'docker-cred') {
+                   withDockerRegistry(url: 'https://hub.docker.com/') {
                          sh 'docker build -t satyapujari/candystore .'
                          sh 'docker push satyapujari/candystore:latest'
                    }
